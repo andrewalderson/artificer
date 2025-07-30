@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "nx-mcp": {
+      "type": "http",
+      "url": "http://localhost:9105/mcp"
+    },
+    "angular-cli": {
+      "command": "npx",
+      "args": [ "@angular/cli", "mcp" ]
+    }
+  }
+}
