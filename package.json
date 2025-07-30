@@ -1,0 +1,19 @@
+{
+  "name": "@artificer/source",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewalderson/artificer"
+  },
+  "author": "Andrew Alderson",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7"
+  }
+}
