@@ -1,20 +1,12 @@
-import { TestBed } from '@angular/core/testing';
+import { render, screen } from '@testing-library/angular';
 import { App } from './app';
-import { NxWelcome } from './nx-welcome';
 
 describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App, NxWelcome],
-    }).compileComponents();
-  });
+  it('should render title', async () => {
+    await render(App);
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(App);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome artificer'
-    );
+    const title = screen.getByRole('heading', { level: 1 });
+
+    expect(title).toHaveTextContent('Welcome artificer');
   });
 });
