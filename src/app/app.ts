@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
+import { Banner } from './core/layout/banner/banner';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [RouterModule, Banner],
   selector: 'arti-root',
-  template: `<arti-nx-welcome></arti-nx-welcome>
-    <router-outlet></router-outlet>`,
-  styles: ``,
+  template: `<arti-banner /><router-outlet></router-outlet>`,
+  styles: `
+  :host {
+    display: block;
+    position: relative;
+  }
+  arti-banner {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  `,
 })
-export class App {
-  protected title = 'artificer';
-}
+export class App {}
