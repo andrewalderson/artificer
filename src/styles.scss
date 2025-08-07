@@ -6,20 +6,20 @@
 @use '@angular/material' as mat;
 
 html {
-  @include mat.theme((color: (primary: mat.$azure-palette,
+  color-scheme: light dark;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
-      typography: "Roboto Flex",
+      typography: 'Roboto Flex',
       density: 0,
-    ));
+    )
+  );
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light dark;
-
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
@@ -40,25 +40,11 @@ body {
 
 body {
   margin: 0;
-  font-family: "Roboto Flex", "Helvetica Neue", sans-serif;
-  font-variation-settings:
-    "slnt" 0,
-    "wdth" 100,
-    "GRAD" 0,
-    "XOPQ" 96,
-    "XTRA" 468,
-    "YOPQ" 79,
-    "YTAS" 750,
-    "YTDE" -203,
-    "YTFI" 738,
-    "YTLC" 514,
-    "YTUC" 712;
+  font-family: 'Roboto Flex', 'Helvetica Neue', sans-serif;
+  font-variation-settings: 'slnt' 0, 'wdth' 100, 'GRAD' 0, 'XOPQ' 96, 'XTRA' 468,
+    'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514, 'YTUC' 712;
 }
 
 .material-symbols-rounded {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 300,
-    'GRAD' 0,
-    'opsz' 24
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
