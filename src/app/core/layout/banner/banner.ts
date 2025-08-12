@@ -16,7 +16,6 @@ import { Logo } from '../logo/logo';
     @use '@angular/material' as mat;
     :host {
       display: flex;
-      width: 100%;
       height: 48px;
       padding-inline: 4px;
       background-color: var(--mat-sys-surface-container-lowest);
