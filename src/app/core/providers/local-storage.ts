@@ -22,27 +22,25 @@ const safeStorage: Storage = {
   setItem() {},
 };
 
+/**
+ * Creates a safe wrapper around the browser's localStorage.
+ * If localStorage is inaccessible (e.g., due to browser security settings),
+ * returns a fallback Storage implementation that safely handles all operations.
+ * This prevents runtime errors when accessing localStorage in restricted environments.
+ */
 function createSafeLocalStorage(): Storage {
   try {
-    // Accessing localStorage may throw
     const raw = localStorage;
     return new Proxy(raw, {
       get(target, prop, receiver) {
         const value = Reflect.get(target, prop, receiver);
-        if (value instanceof Function) {
-          return (...args: unknown[]) => {
+        if (typeof value === 'function') {
+          return function (...args: unknown[]) {
             try {
               return value.apply(target, args);
             } catch {
-              switch (prop) {
-                case 'getItem':
-                case 'key':
-                  return null;
-                case 'length':
-                  return 0;
-                default:
-                  return undefined;
-              }
+              const fallback = safeStorage[prop as keyof Storage];
+              return fallback.apply(safeStorage, args);
             }
           };
         }
